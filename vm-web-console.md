@@ -1,4 +1,4 @@
-# Setting Up a VM All Through CLI
+# Setting Up a VM with virsh + Cockpit
 
 First step is to get access to your host machine via web console.
 
