@@ -54,3 +54,5 @@ Now navigate back to the web console to complete the install:
 `https://your-host-ip:9090`
 
 Log in with your host credentials.
+
+In the left pane you should see Virtual machines and from there you can console into the vm(s)
