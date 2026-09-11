@@ -17,10 +17,8 @@ sudo systemctl enable --now libvirtd
 ```
 
 ## Create the VM
-
 ```
-virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=qcow2 --cdrom=/path/to/your/iso --os-variant=detect=on --network=default \
-  --graphics none --console pty,target_type=serial --extra-args="console=ttyS0" --noautoconsole
+virt-install --name=rocky-minion1 --vcpus=2 --memory=2048 --disk size=20,format=qcow2 --location=/mnt/storage/iso-images/Rocky-9.8-x86_64-minimal.iso --os-variant=rocky9 --network=default --graphics none --console pty,target_type=serial --extra-args="inst.text console=ttyS0,115200n8" --noautoconsole
 ```
 
 Once run, you should see the VM with `virsh`:
