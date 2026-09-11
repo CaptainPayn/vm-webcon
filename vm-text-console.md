@@ -19,7 +19,7 @@ sudo systemctl enable --now libvirtd
 ## Create the VM
 ```
 virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=qcow2 \
---location=/path/to/your/iso --os-variant=rocky9 --network=default --graphics none \
+--location=/path/to/your/iso --os-variant=detect=on,name=generic --network=default --graphics none \
 --console pty,target_type=serial --extra-args="inst.text console=ttyS0,115200n8" --noautoconsole
 ```
 
