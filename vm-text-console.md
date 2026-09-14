@@ -17,10 +17,19 @@ sudo systemctl enable --now libvirtd
 ```
 
 ## Create the VM
+> RHEL
 ```
 virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=qcow2 \
 --location=/path/to/your/iso --os-variant=detect=on,name=generic --network=default --graphics none \
 --console pty,target_type=serial --extra-args="inst.text console=ttyS0,115200n8" --noautoconsole
+```
+>Debian
+```
+virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=qcow2 \
+--disk /mnt/storage/iso-images/ubuntu-24.04.3-live-server-amd64.iso,device=cdrom \
+--os-variant=ubuntu24.04 --location=/mnt/storage/iso-images/ubuntu-24.04.3-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd \
+--network network=default,model=virtio --graphics none --console pty,target_type=serial \
+--extra-args="console=ttyS0,115200n8" --noautoconsole
 ```
 
 Once run, you should see the VM with `virsh`:
