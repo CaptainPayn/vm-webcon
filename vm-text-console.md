@@ -25,11 +25,9 @@ virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=q
 ```
 >Debian
 ```
-virt-install --name=your-vm-name --vcpus=2 --memory=2048 --disk size=20,format=qcow2 \
---disk /mnt/storage/iso-images/ubuntu-24.04.3-live-server-amd64.iso,device=cdrom \
---os-variant=ubuntu24.04 --location=/mnt/storage/iso-images/ubuntu-24.04.3-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd \
---network network=default,model=virtio --graphics none --console pty,target_type=serial \
---extra-args="console=ttyS0,115200n8" --noautoconsole
+virt-install --name your-vm-name --memory 2048 --vcpus 2 --disk path=/path/to/your/qcow2,size=20,format=qcow2 \
+--location /path/to/your/iso,kernel=casper/vmlinuz,initrd=casper/initrd --os-variant=detect=on,name=generic \
+--network network=default,model=virtio --graphics none --extra-args "console=ttyS0,115200n8 serial"
 ```
 
 Once run, you should see the VM with `virsh`:
